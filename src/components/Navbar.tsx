@@ -1,40 +1,35 @@
+import { FC, useState } from "react";
 import "./Navbar.css";
 import logo from '../assets/symbol.png'
-import { FC } from "react";
+import search1 from '../assets/search1.svg'
+import dropdown from '../assets/arrow-down.svg'
+
+
 
 const Navbar: FC = () => {
+    const [location, setLocation] = useState<string>('Kerala');
+    const [locationDropdown, setLocationDropdown] = useState<boolean>(false);
+
     return (
         <div className="navbar fixed flex items-center justify-between top-0 left-0 w-full pl-4 h-[70px] mx-auto bg-[#EFF1F3] z-10 text-white">
             <div className="nav-left flex items-center gap-x-2">
                 <img className="logo cursor-pointer" src={logo} alt="" />
-                <div className="flex items-center bg-white rounded-md shadow-md p-2 w-64 border border-gray-300 focus-within:border-blue-500">
-                    {/* Search Icon */}
-                    <svg className="w-5 h-5 text-gray-400 ml-2" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
-                        <path d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z"></path>
-                    </svg>
-
-                    {/* Input Field */}
-                    <input
-                        type="text"
-                        placeholder="Kerala"
-                        className="bg-transparent location-input outline-none flex-grow px-2 text-gray-700"
-                    />
-
-                    {/* Dropdown Icon */}
-                    <svg
-                        className="w-5 h-5 text-gray-400 mr-2"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M19 9l-7 7-7-7"
-                        />
-                    </svg>
+                <div className="location flex bg-white justify-between px-3 py-[10px] border-black border-2 rounded w-[280px] h-[48px] relative">
+                    <img src={search1} alt="Search icon" className="search-1 mr-2 w-[20px]" />
+                    <input type="text" className="border-none outline-none text-black" value={location} readOnly />
+                    <img src={dropdown} alt="Dropdown arrow" className={`arrow-down mr-1 ${locationDropdown ? 'rotate-180' : ''} cursor-pointer`} onClick={() => setLocationDropdown((prev) => !prev)} />
+                    <div className={`location-dropdown absolute top-12 left-0 right-0 bg-white shadow-2xl flex flex-col items-start gap-y-2 p-5 rounded ${locationDropdown ? 'block' : 'hidden'}`}>
+                        <h3 className="text-sm text-gray-600 pb-3">Popular Locations</h3>
+                        <ul className="flex flex-col text-start text-black gap-y-4">
+                            {['Kerala', 'TamilNadu', 'Bangladesh', 'Goa'].map((item) => (
+                                <li key={item} className="py-2 px-4 hover:bg-gray-200 cursor-pointer" onClick={() => {
+                                    setLocation(item);
+                                    setLocationDropdown(false);
+                                }
+                                }>{item}</li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
