@@ -2,3 +2,7 @@
     width: 55px;
     height: auto;
 }
+
+.navbar img.arrow-down {
+    width: 20px;
+}
