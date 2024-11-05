@@ -3,7 +3,7 @@
 }
 
 .navbar img.logo {
-    width: 80px;
+    width: 90px;
     height: 50px;
 }
 
@@ -25,16 +25,20 @@
     .nav-left .search-bar {
         width: 190px;
     }
+    .navbar img.logo {
+        width: 60px;
+        height: 30px;
+    }
 }
 
 @media (max-width: 480px) {
 
     .nav-left {
-        gap: 0px;
+        gap: 15px;
     }
 
     .nav-left .search-bar {
-        width: 130px;
+        width: 230px;
         height: 35px;
         font-size: 0.9em;
     }
@@ -48,7 +52,7 @@
     }
 
     .nav-right .language {
-        gap: 3px;
+        display: none;
     }
 
     .nav-right .language h3 {
@@ -67,7 +71,7 @@
 @media (max-width: 400px) {
 
     .nav-left .search-bar {
-        width: 100px;
+        width: 200px;
         height: 35px;
         font-size: 0.9em;
     }
