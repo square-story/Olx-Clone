@@ -1,12 +1,17 @@
 import './Home.css'
 import Navbar from "../components/Navbar";
 import { FC } from "react";
+import LoginModal from '../components/LoginModal';
+import { useAuth } from '../contexts/AuthContext';
+
+
 
 const Home: FC = () => {
+    const { isLoginModalOpen } = useAuth();
     return (
         <div className="home-container">
             <Navbar />
-            <h1>Home Page</h1>
+            {isLoginModalOpen && <LoginModal />}
         </div>
     )
 }
