@@ -7,15 +7,25 @@ import location_icon from '../assets/location.svg';
 import search from '../assets/search.svg';
 import sell_btn from '../assets/addButton.png';
 import { useAuth } from '../contexts/AuthContext';
+import { useNavigate } from "react-router-dom";
 
 
 
 
 
 const Navbar: FC = () => {
+    const navigator = useNavigate();
     const { user, logout, openLoginModal } = useAuth();
     const [location, setLocation] = useState<string>('Kerala');
     const [locationDropdown, setLocationDropdown] = useState<boolean>(false);
+
+    const handleSellBtn = () => {
+        if (user) {
+            navigator('/sell')
+        } else {
+            openLoginModal();
+        }
+    }
 
     return (
         <div className="navbar fixed flex items-center justify-between top-0 left-0 w-full pl-4 h-[70px] mx-auto bg-[#EFF1F3] z-10 text-black">
@@ -97,6 +107,7 @@ const Navbar: FC = () => {
                         src={sell_btn}
                         alt="Sell button"
                         className="sell-btn rounded-[55px] shadow-md cursor-pointer"
+                        onClick={handleSellBtn}
                     />
                 </div>
             </div>
