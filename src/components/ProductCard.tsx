@@ -12,7 +12,7 @@ interface ProductProps {
 }
 
 
-const ProductCard: React.FC<ProductProps> = ({ id, title, price, image }) => {
+const ProductCard: React.FC<ProductProps> = ({ id, title, price, image, description }) => {
     const navigate = useNavigate();
 
     return (
@@ -28,8 +28,7 @@ const ProductCard: React.FC<ProductProps> = ({ id, title, price, image }) => {
                 <p className='text-black text-lg font-bold'>₹ {price}</p>
                 <p className='text-md text-gray-600 truncate'>{title}</p>
                 <div className="place-date flex items-center justify-between pt-1">
-                    <p className='text-xs text-gray-400 truncate'>NOIDA-GREATER NOIDA LINK RD, NOIDA</p>
-                    <p className='text-xs text-gray-400'>OCT 12</p>
+                    <p className='text-xs text-gray-400 truncate'>{description}</p>
                 </div>
             </div>
         </div>

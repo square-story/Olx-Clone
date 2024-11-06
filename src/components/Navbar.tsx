@@ -102,7 +102,7 @@ const Navbar: FC = () => {
                         Login
                     </h3>
                 )}
-                <div className="sell-btn">
+                <div className={`sell-btn`}>
                     <img
                         src={sell_btn}
                         alt="Sell button"
@@ -110,6 +110,7 @@ const Navbar: FC = () => {
                         onClick={handleSellBtn}
                     />
                 </div>
+
             </div>
         </div>
     )
