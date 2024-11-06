@@ -30,7 +30,7 @@ const Navbar: FC = () => {
     return (
         <div className="navbar fixed flex items-center justify-between top-0 left-0 w-full pl-4 h-[70px] mx-auto bg-[#EFF1F3] z-10 text-black">
             <div className="nav-left flex items-center gap-x-2">
-                <img className="logo cursor-pointer" src={logo} alt="" />
+                <img className="logo cursor-pointer" onClick={() => navigator('/')} src={logo} alt="" />
                 <div className="location flex bg-white justify-between px-3 py-[10px] border-black border-2 rounded w-[280px] h-[48px] relative">
                     <img src={search1} alt="Search icon" className="search-1 mr-2 w-[20px]" />
                     <input type="text" className="border-none outline-none text-black" value={location} readOnly />
