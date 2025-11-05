@@ -1,50 +1,90 @@
-# React + TypeScript + Vite
+**OLX Clone**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+A full-featured clone of the popular OLX marketplace platform, built using React, TypeScript, and Vite. This project replicates core OLX functionalities such as listing products, browsing items, item details view, and user authentication.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🛠 Tech Stack
+Frontend: React + TypeScript
 
-## Expanding the ESLint configuration
+Styling: TailwindCSS
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Build Tools: Vite
 
-- Configure the top-level `parserOptions` property like this:
+State Management: React Context API
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Services: Firebase (for config/auth/storage)
+
+Linting: ESLint
+
+🚀 Features
+Product Listings: View all available items for sale.
+
+Item Details: Individual item pages with detailed information.
+
+Sell Page: Easy interface to post new listings.
+
+User Authentication: Basic auth system (Firebase backend).
+
+Responsive UI: Works across desktop & mobile devices.
+
+Modern UI: Built with reusable React components and TailwindCSS.
+
+📁 Folder Structure
+```bash
+src/
+  ├── assets/         # Static files and images
+  ├── components/     # Reusable UI components
+  ├── contexts/       # React Context providers (Auth, App, etc.)
+  ├── pages/          # Application pages (Home, Sell, ItemDetails)
+  ├── services/       # Service logic and API wrappers (firebaseConfig)
+  ├── App.tsx         # Main React component
+  └── main.tsx        # Entry point
+public/               # Public assets (favicon, index.html)
 ```
+💻 Local Development
+Clone the repository:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+git clone https://github.com/square-story/Olx-Clone.git
+cd Olx-Clone
 ```
+Install dependencies:
+
+```bash
+npm install
+```
+Start development server:
+
+```bash
+npm run dev
+```
+🎯 How It Works
+Home Page: Displays all products fetched from the backend.
+
+Sell: Allows users to post new products (requires authentication).
+
+Item Details: Shows product images, descriptions, prices, and seller info.
+
+Authentication: Managed using Firebase through React context.
+
+📌 Future Improvements
+Enhanced authentication (OAuth, phone/email verification)
+
+Chat between buyers and sellers
+
+Image uploads and cloud storage integration
+
+Search and filtering options
+
+Admin dashboard for managing listings
+
+📝 License
+This project is for educational purposes and is not affiliated with OLX.
+
+🤝 Contributing
+Pull requests are welcome! For major changes, please open an issue first to discuss proposed updates.
+
+Happy coding!
+
+Let me know if you'd like to add more details or specific deployment instructions!
+
